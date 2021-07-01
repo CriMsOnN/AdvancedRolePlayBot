@@ -2,6 +2,7 @@ import { Command, Config } from "../../interface";
 import { Client, Message } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
+import { cacheGet, cacheSet } from "../../lib/Cache";
 
 export const command: Command = {
   name: "setupdarknet",
@@ -29,6 +30,12 @@ export const command: Command = {
         data: {
           darknetChannel: darknetstring,
         },
+      });
+
+      const currentCache = await cacheGet(message.guild.id);
+      await cacheSet(message.guild.id, {
+        ...currentCache,
+        darknetChannel: darknetstring,
       });
 
       return await message.reply(`<#${darknetstring}> setup finished!`);

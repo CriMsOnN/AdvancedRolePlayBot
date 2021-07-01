@@ -2,6 +2,7 @@ import { Command, Config } from "../../interface";
 import { Client, Message } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
+import { cacheGet, cacheSet } from "../../lib/Cache";
 
 export const command: Command = {
   name: "setupwelcome",
@@ -29,6 +30,12 @@ export const command: Command = {
         data: {
           welcomeLeaveChannel: welcomestring,
         },
+      });
+
+      const currentCache = await cacheGet(message.guild.id);
+      await cacheSet(message.guild.id, {
+        ...currentCache,
+        welcomeLeaveChannel: welcomestring,
       });
 
       return await message.reply(`<#${welcomestring}> setup finished!`);

@@ -18,7 +18,7 @@ client.on("error", (error) => {
  */
 
 export const cacheSet = async (key, value) => {
-  pogger.info(`${key} added to cache with value ${value}`);
+  pogger.success(`${key} cached a value`);
   return await setAsync(key, JSON.stringify(value));
 };
 
@@ -28,6 +28,6 @@ export const cacheSet = async (key, value) => {
 
 export const cacheGet = async (key) => {
   const data = await getAsync(key);
-  pogger.info(`${key} get from cache with value ${JSON.parse(data)}}`);
+  pogger.success(`${key} retrieved a value from cache`);
   return JSON.parse(data);
 };

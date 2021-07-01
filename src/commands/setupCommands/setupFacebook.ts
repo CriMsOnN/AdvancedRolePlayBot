@@ -2,6 +2,7 @@ import { Command, Config } from "../../interface";
 import { Client, Message } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
+import { cacheGet, cacheSet } from "../../lib/Cache";
 
 export const command: Command = {
   name: "setupfacebook",
@@ -29,6 +30,12 @@ export const command: Command = {
         data: {
           facebookChannel: facebookstring,
         },
+      });
+
+      const currentCache = await cacheGet(message.guild.id);
+      await cacheSet(message.guild.id, {
+        ...currentCache,
+        facebookChannel: facebookstring,
       });
 
       return await message.reply(`<#${facebookstring}> setup finished!`);

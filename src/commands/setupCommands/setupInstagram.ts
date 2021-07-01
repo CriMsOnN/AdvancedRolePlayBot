@@ -2,12 +2,12 @@ import { Command, Config } from "../../interface";
 import { Client } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
-import { cacheSet } from "../../lib/Cache";
+import { cacheGet, cacheSet } from "../../lib/Cache";
 
 export const command: Command = {
   name: "setupinstagram",
   aliases: ["si"],
-  label: "SetupInstagram",
+  label: "Setup Instagram",
   run: async (client, message, args) => {
     if (args.length === 0) {
       return await message.reply(
@@ -31,8 +31,13 @@ export const command: Command = {
           instagramChannel: instagramString,
         },
       });
+      const currentCache = await cacheGet(message.guild.id);
+      await cacheSet(message.guild.id, {
+        ...currentCache,
+        instagramChannel: instagramString,
+      });
 
-      cacheSet(`instagramchannel_${message.guild.id}`, instagramString);
+      console.log(JSON.stringify(cacheGet(message.guild.id)));
 
       return await message.reply(`<#${instagramString}> setup finished!`);
     } else {

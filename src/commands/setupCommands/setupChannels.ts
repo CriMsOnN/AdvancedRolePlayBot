@@ -6,7 +6,7 @@ import prisma from "../../prisma";
 export const command: Command = {
   name: "setup",
   aliases: ["sch"],
-  label: "SetupChannels",
+  label: "Setup Channels",
   run: async (client: Client, message, args) => {
     const channels = await prisma.guild.findUnique({
       where: {

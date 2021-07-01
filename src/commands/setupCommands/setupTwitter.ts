@@ -2,6 +2,7 @@ import { Command, Config } from "../../interface";
 import { Client, Message } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
+import { cacheGet, cacheSet } from "../../lib/Cache";
 
 export const command: Command = {
   name: "setuptwitter",
@@ -30,6 +31,14 @@ export const command: Command = {
           twitterChannel: twitterstring,
         },
       });
+
+      const currentCache = await cacheGet(message.guild.id);
+      await cacheSet(message.guild.id, {
+        ...currentCache,
+        twitterChannel: twitterstring,
+      });
+
+      console.log(JSON.stringify(cacheGet(message.guild.id)));
 
       return await message.reply(`<#${twitterstring}> setup finished!`);
     } else {
