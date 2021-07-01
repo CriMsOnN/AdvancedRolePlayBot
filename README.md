@@ -4,7 +4,7 @@
 
 - Discord JS
 - Typescript
-- Prisma
+- Prisma with postgresql
 - Redis for cache
 
 # More infos soon
