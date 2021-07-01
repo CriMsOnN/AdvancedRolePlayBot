@@ -10,11 +10,19 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Warnings {
+  id        String @id @default(uuid())
+  user_name String
+  user_id   String
+  guildID   String
+  guild     Guild  @relation(fields: [guildID], references: [guildID])
+}
+
 model Guild {
-  id                  String  @id @default(uuid())
+  id                  String     @id @default(uuid())
   name                String
-  prefix              String  @default("!")
-  guildID             String  @unique
+  prefix              String     @default("!")
+  guildID             String     @unique
   instagramChannel    String?
   darknetChannel      String?
   facebookChannel     String?
@@ -24,4 +32,7 @@ model Guild {
   serverIP            String?
   welcomeLeaveChannel String?
   muteRoleID          String?
+  warnings            Warnings[]
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
 }

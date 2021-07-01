@@ -18,6 +18,11 @@
     "tslint": "^6.1.3",
     "typescript": "^4.3.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CriMsOnN/AdvancedRolePlayBot/"
+  },
+  "homepage": "https://github.com/CriMsOnN/AdvancedRolePlayBot/#readme",
   "dependencies": {
     "@prisma/client": "2.26.0",
     "discord-buttons": "^3.2.1",

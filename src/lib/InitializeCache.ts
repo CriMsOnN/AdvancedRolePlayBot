@@ -21,16 +21,43 @@ export const init = async () => {
       name,
     }) => {
       cacheSet(guildID, {
-        instagramChannel,
-        darknetChannel,
-        facebookChannel,
-        twitterChannel,
-        cargrChannel,
-        logsChannel,
-        serverIP,
-        welcomeLeaveChannel,
-        muteRoleID,
-        name,
+        instagramChannel: {
+          channel: instagramChannel,
+          name: "Instagram",
+        },
+        darknetChannel: {
+          channel: darknetChannel,
+          name: "Darknet",
+        },
+        facebookChannel: {
+          channel: facebookChannel,
+          name: "Facebook",
+        },
+        twitterChannel: {
+          channel: twitterChannel,
+          name: "Twitter",
+        },
+        cargrChannel: {
+          channel: cargrChannel,
+          name: "Car.gr",
+        },
+        logsChannel: {
+          channel: logsChannel,
+          name: "Logs",
+        },
+        serverIP: {
+          ip: serverIP,
+        },
+        welcomeLeaveChannel: {
+          channel: welcomeLeaveChannel,
+          name: "Welcome & Lleave",
+        },
+        muteRoleID: {
+          id: muteRoleID,
+        },
+        serverName: {
+          name: name,
+        },
       });
       pogger.success(`${name} initialized!`);
     }

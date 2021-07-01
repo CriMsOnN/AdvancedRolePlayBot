@@ -34,10 +34,11 @@ export const command: Command = {
       const currentCache = await cacheGet(message.guild.id);
       await cacheSet(message.guild.id, {
         ...currentCache,
-        instagramChannel: instagramString,
+        instagramChannel: {
+          channel: instagramString,
+          name: currentCache.instagramChannel.name,
+        },
       });
-
-      console.log(JSON.stringify(cacheGet(message.guild.id)));
 
       return await message.reply(`<#${instagramString}> setup finished!`);
     } else {

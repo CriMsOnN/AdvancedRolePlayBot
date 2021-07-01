@@ -35,7 +35,10 @@ export const command: Command = {
       const currentCache = await cacheGet(message.guild.id);
       await cacheSet(message.guild.id, {
         ...currentCache,
-        welcomeLeaveChannel: welcomestring,
+        welcomeLeaveChannel: {
+          channel: welcomestring,
+          name: currentCache.welcomeLeaveChannel.name,
+        },
       });
 
       return await message.reply(`<#${welcomestring}> setup finished!`);

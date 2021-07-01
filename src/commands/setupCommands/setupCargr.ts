@@ -35,7 +35,10 @@ export const command: Command = {
       const currentCache = await cacheGet(message.guild.id);
       await cacheSet(message.guild.id, {
         ...currentCache,
-        cargrChannel: cargrstring,
+        cargrChannel: {
+          channel: cargrstring,
+          name: currentCache.cargrChannel.name,
+        },
       });
 
       return await message.reply(`<#${cargrstring}> setup finished!`);

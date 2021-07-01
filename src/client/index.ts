@@ -46,7 +46,7 @@ export default class BotInstance extends Client {
     readdirSync(eventPath).forEach(async (file) => {
       const { event } = await import(`${eventPath}/${file}`);
       this.events.set(event.name, event);
-      this.logger.info(`${event.name.toUpperCase()}] registered  ✔`);
+      this.logger.info(`[${event.name.toUpperCase()}] registered  ✔`);
       this.on(event.name, event.run.bind(null, this));
     });
 

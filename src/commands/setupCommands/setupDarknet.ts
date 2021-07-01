@@ -35,7 +35,10 @@ export const command: Command = {
       const currentCache = await cacheGet(message.guild.id);
       await cacheSet(message.guild.id, {
         ...currentCache,
-        darknetChannel: darknetstring,
+        darknetChannel: {
+          channel: darknetstring,
+          name: currentCache.darknetChannel.name,
+        },
       });
 
       return await message.reply(`<#${darknetstring}> setup finished!`);

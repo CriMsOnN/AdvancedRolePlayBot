@@ -35,10 +35,11 @@ export const command: Command = {
       const currentCache = await cacheGet(message.guild.id);
       await cacheSet(message.guild.id, {
         ...currentCache,
-        twitterChannel: twitterstring,
+        twitterChannel: {
+          channel: twitterstring,
+          name: currentCache.twitterChannel.name,
+        },
       });
-
-      console.log(JSON.stringify(cacheGet(message.guild.id)));
 
       return await message.reply(`<#${twitterstring}> setup finished!`);
     } else {
