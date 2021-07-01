@@ -1,0 +1,35 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "RolePlay discord bot",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only --poll ./src/index.ts",
+    "start:dev": "cross-env NODE_ENV=development nodemon"
+  },
+  "author": "Cr1MsOn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^15.12.5",
+    "@types/node-fetch": "^2.5.10",
+    "@types/redis": "^2.8.30",
+    "cross-env": "^7.0.3",
+    "ts-node": "^10.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@prisma/client": "2.26.0",
+    "discord-buttons": "^3.2.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "global": "^4.4.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.9",
+    "prisma": "2.26.0",
+    "redis": "^3.1.2",
+    "redis-cli": "^2.1.0",
+    "ts-node-dev": "^1.1.7"
+  }
+}
