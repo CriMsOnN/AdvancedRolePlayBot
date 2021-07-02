@@ -52,6 +52,7 @@ export const command: Command = {
         });
 
         embed.setFooter(`Pages: ${currentPage + 1}/${pages}`);
+        embed.setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
 
         message.channel.send({ embed: embed }).then(async (embedMessage) => {
           await embedMessage.react("⏮️");
