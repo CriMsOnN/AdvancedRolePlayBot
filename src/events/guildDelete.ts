@@ -19,6 +19,7 @@ export const event: Event = {
           guildID: guild.id,
         },
       });
+
       const deleted = await prisma.guild.delete({
         where: { guildID: guild.id },
       });
