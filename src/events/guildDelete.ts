@@ -14,6 +14,11 @@ export const event: Event = {
     });
 
     if (findGuild) {
+      const warnings = await prisma.warnings.deleteMany({
+        where: {
+          guildID: guild.id,
+        },
+      });
       const deleted = await prisma.guild.delete({
         where: { guildID: guild.id },
       });

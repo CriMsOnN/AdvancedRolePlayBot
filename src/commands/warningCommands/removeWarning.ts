@@ -6,6 +6,7 @@ export const command: Command = {
   name: "removewarning",
   aliases: ["rw"],
   label: "Remove Warning",
+  description: "Remove warning from mentioned user",
   run: async (client, message, args) => {
     const user = message.mentions.members.first();
 

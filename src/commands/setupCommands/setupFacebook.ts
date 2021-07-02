@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setupfacebook",
   aliases: ["sf"],
   label: "Setup Facebook",
+  description: "Setup facebook channel",
   run: async (client: Client, message: Message, args: string[]) => {
     if (args.length === 0) {
       return await message.reply(

@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/CriMsOnN/AdvancedRolePlayBot/#readme",
   "dependencies": {
-    "@prisma/client": "2.26.0",
+    "@prisma/client": "^2.26.0",
     "discord-buttons": "^3.2.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
@@ -33,7 +33,7 @@
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.9",
     "pogger": "^0.0.8",
-    "prisma": "2.26.0",
+    "prisma": "^2.26.0",
     "redis": "^3.1.2",
     "redis-cli": "^2.1.0",
     "ts-node-dev": "^1.1.7"

@@ -7,6 +7,7 @@ export const command: Command = {
   name: "warning",
   aliases: ["wg"],
   label: "Warning",
+  description: "Give warning to mentioned user",
   run: async (client: Client, message: Message, args: string[]) => {
     const user = message.mentions.members.first();
 

@@ -8,6 +8,7 @@ export const command: Command = {
   name: "removemute",
   aliases: ["rm"],
   label: "Remove Mute",
+  description: "Remove mute from mentioned member",
   run: async (client: Client, message: Message, args) => {
     const user = message.mentions.members.first();
 

@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setupdarknet",
   aliases: ["sd"],
   label: "Setup Darknet",
+  description: "Setup darknet channel",
   run: async (client: Client, message: Message, args: string[]) => {
     if (args.length === 0) {
       return await message.reply(

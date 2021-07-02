@@ -9,6 +9,7 @@ export const command: Command = {
   name: "players",
   aliases: ["players"],
   label: "Total Players",
+  description: "Players list with steam name and ping",
   run: async (client: Client, message: Message, args) => {
     function splitArrayIntoChunksOfLen(arr, len) {
       var chunks = [],
@@ -36,11 +37,16 @@ export const command: Command = {
         let currentPage = 0;
         const embed = new MessageEmbed();
         embed.setTitle(`Total Players: ${results.length}`);
+        embed.setColor("DARK_AQUA");
 
         splittedArrays[currentPage].forEach((player) => {
           embed.addField(
-            `Player: ${player.name}`,
-            `Ping: ${player.ping}`,
+            `**${player.name}**`,
+            `Ping: **${
+              player.ping > 100
+                ? `${player.ping} ** -> HIGH`
+                : player.ping + "**"
+            }`,
             true
           );
         });
@@ -70,8 +76,12 @@ export const command: Command = {
               );
               splittedArrays[currentPage].forEach((player, index) => {
                 embed.fields[index] = {
-                  name: `Player: ${player.name}`,
-                  value: `Ping: ${player.ping}`,
+                  name: `**${player.name}**`,
+                  value: `Ping: **${
+                    player.ping > 100
+                      ? `${player.ping}** -> HIGH`
+                      : player.ping + "**"
+                  }`,
                   inline: true,
                 };
               });
@@ -88,8 +98,12 @@ export const command: Command = {
               const embed = embedMessage.embeds[0];
               splittedArrays[currentPage].forEach((player, index) => {
                 embed.fields[index] = {
-                  name: `Player: ${player.name}`,
-                  value: `Ping: ${player.ping}`,
+                  name: `**${player.name}**`,
+                  value: `Ping: **${
+                    player.ping > 100
+                      ? `${player.ping}** -> HIGH`
+                      : player.ping + "**"
+                  }`,
                   inline: true,
                 };
               });

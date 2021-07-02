@@ -58,6 +58,9 @@ export const init = async () => {
         serverName: {
           name: name,
         },
+        prefix: {
+          name: prefix,
+        },
       });
       pogger.success(`${name} initialized!`);
     }

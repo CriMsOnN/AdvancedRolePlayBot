@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setuptwitter",
   aliases: ["st"],
   label: "Setup Twitter",
+  description: "Setup twitter channel",
   run: async (client: Client, message: Message, args: string[]) => {
     if (args.length === 0) {
       return await message.reply(

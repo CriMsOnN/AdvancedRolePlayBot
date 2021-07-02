@@ -2,12 +2,14 @@ import { Event, Command } from "../interface";
 import { Message } from "discord.js";
 import { cacheGet } from "../lib/Cache";
 import { embedBuilder } from "../lib/Builder";
+import { CacheProps } from "../interface/cache";
 
 export const event: Event = {
   name: "message",
   run: async (client, message: Message) => {
+    const cache: CacheProps = await cacheGet(message.guild.id);
     let args = message.content
-      .slice(client.config.prefix.length)
+      .slice(cache.prefix.name.length)
       .trim()
       .split(/ +/g);
     if (message.author?.bot) return;

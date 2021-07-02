@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setupwelcome",
   aliases: ["sw"],
   label: "Setup Welcome & Leave",
+  description: "Setup welcome & leave channel",
   run: async (client: Client, message: Message, args: string[]) => {
     if (args.length === 0) {
       return await message.reply(

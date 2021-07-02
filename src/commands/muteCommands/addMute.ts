@@ -8,6 +8,7 @@ export const command: Command = {
   name: "addmute",
   aliases: ["am"],
   label: "Add Mute",
+  description: "Add mute to the mentioned user",
   run: async (client: Client, message: Message, args: string[]) => {
     const user = message.mentions.members.first();
 

@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setup",
   aliases: ["sch"],
   label: "Setup Channels",
+  description: "Showing the list of channels",
   run: async (client: Client, message, args) => {
     const channels = await prisma.guild.findUnique({
       where: {

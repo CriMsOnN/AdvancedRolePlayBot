@@ -6,6 +6,7 @@ export const command: Command = {
   name: "setupinstagram",
   aliases: ["si"],
   label: "Setup Instagram",
+  description: "Setup instagram channel",
   run: async (client, message, args) => {
     if (args.length === 0) {
       return await message.reply(

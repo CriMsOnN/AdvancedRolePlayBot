@@ -42,6 +42,8 @@ export const embedBuilder = async (
 
   if (color) {
     embed.setColor(color);
+  } else {
+    embed.setColor("DARK_AQUA");
   }
 
   embed.setThumbnail(client.user.displayAvatarURL());

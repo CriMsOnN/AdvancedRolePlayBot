@@ -36,4 +36,7 @@ export interface CacheProps {
   serverName: {
     name: string;
   };
+  prefix: {
+    name: string;
+  };
 }

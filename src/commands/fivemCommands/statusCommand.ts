@@ -10,6 +10,7 @@ export const command: Command = {
   name: "status",
   aliases: ["status"],
   label: "Server Status",
+  description: "Total Players with queue",
   run: async (client: Client, message: Message, args: string[]) => {
     const Cache: CacheProps = await cacheGet(message.guild.id);
     if (Cache.serverIP.ip !== null) {

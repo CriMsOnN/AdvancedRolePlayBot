@@ -7,6 +7,7 @@ export const command: Command = {
   name: "setupserver",
   aliases: ["ss"],
   label: "Setup Server",
+  description: "Setup your server",
   run: async (client: Client, message: Message, args: string[]) => {
     if (args.length === 0) {
       return await message.reply(
