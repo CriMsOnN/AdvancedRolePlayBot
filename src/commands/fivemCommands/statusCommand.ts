@@ -32,6 +32,7 @@ export const command: Command = {
               value: `${clients}/${sv_maxclients}`,
             },
           ],
+          null,
           client
         );
       }

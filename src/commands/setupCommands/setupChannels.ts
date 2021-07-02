@@ -72,7 +72,7 @@ export const command: Command = {
             }`,
           },
         ],
-        "#0099ff",
+        null,
         client
       );
     }
