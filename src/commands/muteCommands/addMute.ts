@@ -3,6 +3,7 @@ import { Client, Message } from "discord.js";
 import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
 import { cacheGet, cacheSet } from "../../lib/Cache";
+import { CacheProps } from "../../interface/cache";
 
 export const command: Command = {
   name: "addmute",
@@ -15,10 +16,10 @@ export const command: Command = {
       return await message.reply(`I cant find that user. Please try again`);
     }
 
-    const Cache = await cacheGet(message.guild.id);
-
+    const Cache: CacheProps = await cacheGet(message.guild.id);
     if (Cache.muteRoleID.id !== null) {
       await user.roles.add(Cache.muteRoleID.id);
+      await message.reply(`Mute role added to ${user.user.username}`);
     } else {
       await message.reply(
         `Seems you dont have any specified mute role id. I will try to find one!`
