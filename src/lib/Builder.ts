@@ -3,6 +3,7 @@ import { MessageEmbed, Message, Client } from "discord.js";
 interface fieldsProps {
   title: string;
   value: string;
+  inline?: boolean;
 }
 
 export const embedBuilder = async (
@@ -35,7 +36,7 @@ export const embedBuilder = async (
 
   if (fields) {
     fields.forEach((field) => {
-      embed.addField(field.title, `${field.value}`);
+      embed.addField(field.title, `${field.value}`, field?.inline);
     });
   }
 
