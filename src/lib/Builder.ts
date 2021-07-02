@@ -1,4 +1,4 @@
-import { MessageEmbed, Message } from "discord.js";
+import { MessageEmbed, Message, Client } from "discord.js";
 
 interface fieldsProps {
   title: string;
@@ -12,7 +12,8 @@ export const embedBuilder = async (
   author?,
   image?,
   fields?: fieldsProps[],
-  color?
+  color?,
+  client?: Client
 ) => {
   const embed: MessageEmbed = new MessageEmbed();
 
@@ -42,11 +43,11 @@ export const embedBuilder = async (
     embed.setColor(color);
   }
 
-  embed.setThumbnail("https://imgur.com/cpD6l1z.png");
+  embed.setThumbnail(client.user.displayAvatarURL());
 
   embed.setFooter(
     "Advanced RolePlay Bot by Cr1MsOn",
-    "https://imgur.com/cpD6l1z.png"
+    client.user.displayAvatarURL({ dynamic: true })
   );
 
   await message.channel.send({ embed });

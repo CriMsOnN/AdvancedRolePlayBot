@@ -71,7 +71,8 @@ export const command: Command = {
             }`,
           },
         ],
-        "#0099ff"
+        "#0099ff",
+        client
       );
     }
   },

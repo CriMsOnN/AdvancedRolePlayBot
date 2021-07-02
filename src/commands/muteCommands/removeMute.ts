@@ -1,6 +1,5 @@
 import { Command, Config } from "../../interface";
 import { Client, Message } from "discord.js";
-import { embedBuilder } from "../../lib/Builder";
 import prisma from "../../prisma";
 import { cacheGet, cacheSet } from "../../lib/Cache";
 import { CacheProps } from "../../interface/cache";

@@ -35,7 +35,8 @@ export const command: Command = {
           `Total Players:`,
           null,
           null,
-          players
+          players,
+          client
         );
       }
     }

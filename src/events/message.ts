@@ -29,15 +29,24 @@ export const event: Event = {
       for (let channel of Object.values(currentCache)) {
         if (channel["channel"] === message.channel.id) {
           const content = message.content;
+          const image =
+            message.attachments.size > 0
+              ? message.attachments.array()[0].url
+              : null;
+          let addImage = null;
+          if (image) {
+            addImage = image;
+          }
           await message.delete({ timeout: 100 });
           await embedBuilder(
             message,
             channel["name"],
             content,
             null,
+            addImage,
             null,
-            null,
-            "#0099ff"
+            "#0099ff",
+            client
           );
         }
       }

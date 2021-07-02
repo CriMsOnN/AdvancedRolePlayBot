@@ -30,7 +30,8 @@ export const command: Command = {
               title: "Total Players",
               value: `${clients}/${sv_maxclients}`,
             },
-          ]
+          ],
+          client
         );
       }
     }
