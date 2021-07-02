@@ -1,6 +1,7 @@
 import { Event } from "../interface";
 import prisma from "../prisma/index";
 import { Guild } from "discord.js";
+import { init } from "../lib/InitializeCache";
 
 export const event: Event = {
   name: "guildCreate",
@@ -24,6 +25,8 @@ export const event: Event = {
       guild.owner?.send(
         "Thanks for inviting me to your guild! You default settings have been saved to my database\n If you want to see my commands type ~help"
       );
+
+      await init();
     }
   },
 };
